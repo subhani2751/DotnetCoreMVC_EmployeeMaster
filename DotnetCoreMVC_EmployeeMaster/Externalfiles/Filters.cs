@@ -8,58 +8,61 @@ using System.Reflection;
 
 namespace DotnetCoreMVC_EmployeeMaster.Externalfiles
 {
-    public class CustomeModelbinderprovider : DefaultModelBindingContext, IModelBinderProvider
-    {
-        public IModelBinder? GetBinder(ModelBinderProviderContext context)
-        {
-            //if (context.Metadata.ModelType == typeof(FormBase))
-            //{
-            //    return new CustomeModelbindeing();
-            //}
-            throw new NotImplementedException();
-        }
-    }
-    public class CustomeModelbindeing :  IModelBinder
+    public class FormBaseModelBinder : IModelBinder
     {
         private readonly IModelMetadataProvider _metadataProvider;
-        public CustomeModelbindeing(IModelMetadataProvider modelMetadataProvider)
+
+        public FormBaseModelBinder(IModelMetadataProvider metadataProvider)
         {
-            _metadataProvider = modelMetadataProvider;
+            _metadataProvider = metadataProvider;
         }
-        public Task BindModelAsync(ModelBindingContext bindingContext)
+
+        public async Task BindModelAsync(ModelBindingContext bindingContext)
         {
-            string? id = string.Empty;
-            var iscreenid = bindingContext.ValueProvider.GetValue("Screenid");
-            if (iscreenid == null)
+            var screenIdResult = bindingContext.ValueProvider.GetValue("Screenid");
+
+            if (screenIdResult == ValueProviderResult.None)
             {
                 bindingContext.Result = ModelBindingResult.Failed();
-                return Task.CompletedTask;
-            }
-            else{
-                id = iscreenid.FirstValue;
+                return;
             }
 
-            if (!string.IsNullOrEmpty(id))
+            string screenId = screenIdResult.FirstValue;
+            Type targetType = null;
+
+            switch (screenId)
             {
-                Type type = null;
-
-                if (id == "3")
-                {
-                    type= typeof(EmployeeModel);
-                    var obj=Activator.CreateInstance(type);
-                    //((FormBase)obj).Screenid = Convert.ToInt32(id);
-                    //bindingContext.Result=ModelBindingResult.Success(obj);
-                    bindingContext.ModelMetadata = _metadataProvider.GetMetadataForType(type);
-                    //bindingContext.ModelMetadata.ModelType = obj;
-                }
+                case "3":
+                    targetType = typeof(EmployeeModel);
+                    break;
+                default:
+                    bindingContext.Result = ModelBindingResult.Failed();
+                    return;
             }
-            return Task.CompletedTask;
-        }
 
+            var model = Activator.CreateInstance(targetType);
+            ((FormBase)model).Screenid = Convert.ToInt32(screenId);
+
+            // Bind remaining properties of derived type
+            var modelBinderFactory = (IModelBinderFactory)bindingContext.HttpContext.RequestServices.GetService(typeof(IModelBinderFactory));
+            var binder = modelBinderFactory.CreateBinder(new ModelBinderFactoryContext
+            {
+                BindingInfo = null,
+                Metadata = _metadataProvider.GetMetadataForType(targetType),
+                CacheToken = targetType
+            });
+
+            var newBindingContext = DefaultModelBindingContext.CreateBindingContext(
+                bindingContext.ActionContext,
+                bindingContext.ValueProvider,
+                _metadataProvider.GetMetadataForType(targetType),
+                bindingInfo: null,
+                modelName: bindingContext.ModelName
+            );
+
+            await binder.BindModelAsync(newBindingContext);
+            bindingContext.Result = ModelBindingResult.Success(newBindingContext.Model);
+        }
     }
 
-    //public class CustomeModelbindeing1 : ComplexObjectModelBinder
-    //{
-        
-    //}
 }

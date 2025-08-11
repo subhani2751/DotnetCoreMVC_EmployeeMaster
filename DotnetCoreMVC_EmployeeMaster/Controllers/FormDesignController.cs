@@ -9,7 +9,7 @@ namespace DotnetCoreMVC_EmployeeMaster.Controllers
     {
         //[HttpPost("PostData")]
         //public IActionResult PostData(FormBase FormData)
-        public IActionResult PostData([ModelBinder(BinderType = typeof(CustomeModelbindeing))] FormBase model)
+        public IActionResult PostData([ModelBinder(BinderType = typeof(FormBaseModelBinder))] FormBase model)
         {
             return RedirectToAction("Getdata", "FormDesign");
         }

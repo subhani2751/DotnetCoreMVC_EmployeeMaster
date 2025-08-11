@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 //builder.Services.AddControllersWithViews(options =>
 //{
-//    options.ModelBinderProviders.Insert(0, new CustomeModelbinderprovider());
+//    options.ModelBinderProviders.Insert(0, new FormBaseModelBinder());
 //});
 
 var app = builder.Build();
