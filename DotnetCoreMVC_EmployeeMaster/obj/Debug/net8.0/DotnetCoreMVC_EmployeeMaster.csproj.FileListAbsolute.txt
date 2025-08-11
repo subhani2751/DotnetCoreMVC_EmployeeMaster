@@ -1,7 +1,0 @@
-C:\Users\subhani\Desktop\MVC\DotnetCoreMVC_EmployeeMaster\DotnetCoreMVC_EmployeeMaster\obj\Debug\net8.0\DotnetCoreMVC_EmployeeMaster.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\subhani\Desktop\MVC\DotnetCoreMVC_EmployeeMaster\DotnetCoreMVC_EmployeeMaster\obj\Debug\net8.0\DotnetCoreMVC_EmployeeMaster.AssemblyInfoInputs.cache
-C:\Users\subhani\Desktop\MVC\DotnetCoreMVC_EmployeeMaster\DotnetCoreMVC_EmployeeMaster\obj\Debug\net8.0\DotnetCoreMVC_EmployeeMaster.AssemblyInfo.cs
-C:\Users\subhani\Desktop\MVC\DotnetCoreMVC_EmployeeMaster\DotnetCoreMVC_EmployeeMaster\obj\Debug\net8.0\DotnetCoreMVC_EmployeeMaster.csproj.CoreCompileInputs.cache
-C:\Users\subhani\Desktop\MVC\DotnetCoreMVC_EmployeeMaster\DotnetCoreMVC_EmployeeMaster\obj\Debug\net8.0\DotnetCoreMVC_EmployeeMaster.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\subhani\Desktop\MVC\DotnetCoreMVC_EmployeeMaster\DotnetCoreMVC_EmployeeMaster\obj\Debug\net8.0\DotnetCoreMVC_EmployeeMaster.RazorAssemblyInfo.cache
-C:\Users\subhani\Desktop\MVC\DotnetCoreMVC_EmployeeMaster\DotnetCoreMVC_EmployeeMaster\obj\Debug\net8.0\DotnetCoreMVC_EmployeeMaster.RazorAssemblyInfo.cs
