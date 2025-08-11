@@ -1,10 +1,11 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using DotnetCoreMVC_EmployeeMaster.Models;
 
 namespace DotnetCoreMVC_EmployeeMaster.Controllers;
 
-public class HomeController : Controller
+public class HomeController : BaseController
 {
     private readonly ILogger<HomeController> _logger;
 
@@ -27,5 +28,10 @@ public class HomeController : Controller
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+
+    public void OnAuthorization(AuthorizationFilterContext context)
+    {
+        throw new NotImplementedException();
     }
 }
