@@ -1,4 +1,0 @@
-C:\Users\subhani\Desktop\MVC\DotnetCoreMVC_EmployeeMaster\DSInterfaces\obj\Debug\net8.0\DSInterfaces.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\subhani\Desktop\MVC\DotnetCoreMVC_EmployeeMaster\DSInterfaces\obj\Debug\net8.0\DSInterfaces.AssemblyInfoInputs.cache
-C:\Users\subhani\Desktop\MVC\DotnetCoreMVC_EmployeeMaster\DSInterfaces\obj\Debug\net8.0\DSInterfaces.AssemblyInfo.cs
-C:\Users\subhani\Desktop\MVC\DotnetCoreMVC_EmployeeMaster\DSInterfaces\obj\Debug\net8.0\DSInterfaces.csproj.CoreCompileInputs.cache

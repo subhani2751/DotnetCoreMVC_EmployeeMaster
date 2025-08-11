@@ -1,3 +1,12 @@
 .vs
-bin
 obj
+DotnetCoreMVC_EmployeeMaster\bin
+DotnetCoreMVC_EmployeeMaster\obj
+DSInterfaces\bin
+DSInterfaces\obj
+Infrastructure\bin
+Infrastructure\obj
+Repositories\bin
+Repositories\obj
+services\bin
+services\obj
