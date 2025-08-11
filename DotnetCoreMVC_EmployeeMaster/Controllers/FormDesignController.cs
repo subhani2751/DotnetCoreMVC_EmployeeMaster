@@ -1,4 +1,5 @@
-﻿using DSInterfaces;
+﻿using DotnetCoreMVC_EmployeeMaster.Externalfiles;
+using DSInterfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotnetCoreMVC_EmployeeMaster.Controllers
@@ -7,7 +8,8 @@ namespace DotnetCoreMVC_EmployeeMaster.Controllers
     public class FormDesignController : BaseController
     {
         //[HttpPost("PostData")]
-        public IActionResult PostData(FormBase FormData)
+        //public IActionResult PostData(FormBase FormData)
+        public IActionResult PostData([ModelBinder(BinderType = typeof(CustomeModelbindeing))] FormBase model)
         {
             return RedirectToAction("Getdata", "FormDesign");
         }

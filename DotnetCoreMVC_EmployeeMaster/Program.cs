@@ -1,7 +1,13 @@
+using DotnetCoreMVC_EmployeeMaster.Externalfiles;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+//builder.Services.AddControllersWithViews(options =>
+//{
+//    options.ModelBinderProviders.Insert(0, new CustomeModelbinderprovider());
+//});
 
 var app = builder.Build();
 

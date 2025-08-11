@@ -8,6 +8,6 @@ namespace DSInterfaces
 {
     public class FormBase
     {
-
+        public int Screenid { get; set; }
     }
 }

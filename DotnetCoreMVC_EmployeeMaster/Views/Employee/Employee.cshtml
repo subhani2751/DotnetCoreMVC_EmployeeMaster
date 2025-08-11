@@ -2,3 +2,43 @@
 @{
     Layout = "_Layout";
 }
+<div>
+    <input type="hidden" name="Screenid" id="Screenid" value="3"/>
+<label for=" EmployeeName">Employee NAme </label>
+    <input type="text" name="EmployeeName" id="EmployeeName" />
+</div>
+<div>
+<label for=" CompanyName">Company Name </label>
+    <input type="text" name="CompanyName" id="CompanyName" />
+</div>
+<div>
+<label for=" CompanyName">Designation </label>
+    <input type="text" name="Designation" id="Designation" />
+</div>
+<div>
+<button type="submit" onclick="Post()">save</button>
+</div>
+
+<script type="text/javascript">
+    function Post(){
+         var employeeName = document.getElementById("EmployeeName").value;
+        var companyName = document.getElementById("CompanyName").value;
+        var designation = document.getElementById("Designation").value;
+         var Screenid = document.getElementById("Screenid").value;
+        // Create the request object
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/FormDesign/PostData', true); // Adjust URL to your controller action
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+
+
+
+        var vales= 'employeeName='+employeeName+'&companyName='+ companyName +'&designation='+designation+'&Screenid='+Screenid;
+        // var  Values1=JSON.stringify({
+        //     EmployeeName: employeeName,
+        //     CompanyName: companyName,
+        //     Designation: designation,
+        //     Screenid : Screenid
+        // });
+        xhr.send(vales);
+    }
+</script>

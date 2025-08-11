@@ -4,10 +4,14 @@ namespace DotnetCoreMVC_EmployeeMaster.Models
 {
     public class EmployeeModel : FormBase
     {
-        public int? IMasterID { get; set; }
-        public string  SName { get; set; }
-        public  string? ProjectName { get; set; }
-        public  string? CompanyName { get; set; }
-       
+        //public int? IMasterID { get; set; }
+        //public string  SName { get; set; }
+        //public  string? ProjectName { get; set; }
+        //public  string? CompanyName { get; set; }
+
+        public string EmployeeName { get; set; }
+        public string? CompanyName { get; set; }
+        public string? Designation { get; set; }
+
     }
 }
