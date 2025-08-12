@@ -28,7 +28,7 @@ namespace DotnetCoreMVC_EmployeeMaster.Externalfiles
             }
 
             string screenId = screenIdResult.FirstValue;
-            Type targetType = null;
+            Type? targetType = null;
 
             switch (screenId)
             {
